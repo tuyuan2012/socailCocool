@@ -1,0 +1,6 @@
+.idea/
+target/
+Cocool.iml
+src/main/main.iml
+src/test/test.iml
+src/main/webapp/WEB-INF/lib/

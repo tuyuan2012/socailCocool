@@ -1,0 +1,83 @@
+/*删除商城数据库,如果存在*/
+
+drop database if exists testCocool;
+
+/*创建数据库,并设置编码*/
+
+create database testCocool default character set utf8;
+
+use testCocool;
+
+/*删除管理员表*/
+
+drop table if exists account;
+
+
+/*删除商品类别表*/
+
+drop table if exists category;
+
+/*============================*/
+
+/* Table: 管理员表结构 		  */
+
+/*============================*/
+
+create table account
+
+(
+
+   /* 管理员编号,自动增长 */
+
+   aid                  int not null auto_increment,
+
+   /* 管理员登录名  */
+
+   alogin               varchar(20),
+
+   /* 管理员姓名  */
+
+   aname                varchar(20),
+
+   /* 管理员密码 */
+
+   apass                varchar(20),
+
+   /* 设置编号为主键 */
+
+   primary key (aid)
+
+);
+
+/*=============================*/
+
+/* Table: 商品类别表结构 		   */
+
+/*=============================*/
+
+create table category
+
+(
+
+   /* 类别编号,自动增长 */
+
+   cid                  int not null auto_increment,
+
+   /* 类别名称 */
+
+   ctype                varchar(20),
+
+   /* 类别是否为热点类别,热点类别才有可能显示在首页 */
+
+   chot                 bool default false,
+
+   /* 外键,此类别由哪位管理员管理 */
+
+   aid                  int,
+
+   /* 设置类别编号为主键 */
+
+   primary key (cid)
+
+);
+
